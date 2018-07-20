@@ -29,6 +29,9 @@
 </head>
 
 <body>
+<div class="mask">
+    <p class="maskp">5</p>
+</div>
 <div class="parallax-window" data-parallax="scroll" data-image-src="img/banner1.jpg">
     <section class="container tm-page-1-content">
         <div class="row">
@@ -132,9 +135,17 @@
 <script src="js/jquery.magnific-popup.min.js"></script>
 <script>
     $(function () {
+        var i = 5;
+        setInterval(function () {
+            $(".maskp").html(--i);
+            if(i==0){
+                $(".mask").slideUp(1000);
+                return
+            }
+        },1000)
+
        var t1 = window.setInterval(play,2000)
         function play(){
-           console.log(1);
             $("#music")[0].play();
             if($("#music")[0].paused){
                 $(".btn-stop").hide();
