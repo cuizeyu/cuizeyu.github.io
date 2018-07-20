@@ -177,7 +177,11 @@
     //调用方法
     loadAudio(audioUrl,function(){
         $('#aaa').attr("src",audioUrl);
-        $(".btn-stop").show();
+        if($("#aaa")[0].paused){
+            $(".btn-stop").show();
+        }else{
+            $(".btn-play").show();
+        }
     });
     $(".btn-stop").on("click",function () {
         Toggle(".btn-stop")
