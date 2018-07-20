@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="个人博客，个人自媒体，博客自媒体，饕餮自媒体，饕餮博客"/>
     <meta name="description" content="饕餮自媒体成立于2018年，是世界上最大最专业的个人自媒体，内容新颖欢迎您的体验"/>
-    <audio autoplay="autoplay" hidden="true" controls="controls"loop="loop" preload="auto"  id="aaa">你的浏览器版本太低，不支持audio标签</audio>
+    <audio autoplay="autoplay" hidden="true" controls="controls"loop="loop"  src="img/bgmusic.mp3"  id="music">你的浏览器版本太低，不支持audio标签</audio>
         <title>==饕餮==一个自媒体</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
@@ -167,36 +167,28 @@
 <!-- Magnific Popup core JS file -->
 <script src="js/jquery.magnific-popup.min.js"></script>
 <script>
-    function loadAudio(src, callback) {
-        var audio = new Audio(src);
-        audio.onloadedmetadata = callback;
-        audio.src = src;
-    }
+    $(function () {
+        $("#music")[0].play();
+        setTimeout(function () {
+            $(".btn-stop").show(1000)
+        },5000)
 
-    var audioUrl = "img/bgmusic.mp3";//音频路径s
-    //调用方法
-    loadAudio(audioUrl,function(){
-        $('#aaa').attr("src",audioUrl);
-        if($("#aaa")[0].paused){
-            $(".btn-stop").show();
-        }else{
-            $(".btn-play").show();
+        $(".btn-stop").on("click",function () {
+            Toggle(".btn-stop")
+        });
+        $(".btn-play").on("click",function () {
+            Toggle(".btn-play")
+        });
+        function Toggle(ind) {
+            $(ind).hide(1000).siblings().show(1000);
+            if($("#music")[0].paused){
+                $("#music")[0].play();
+            }else{
+                $("#music")[0].pause();
+            }
         }
-    });
-    $(".btn-stop").on("click",function () {
-        Toggle(".btn-stop")
-    });
-    $(".btn-play").on("click",function () {
-        Toggle(".btn-play")
-    });
-    function Toggle(ind) {
-        $(ind).hide(1000).siblings().show(1000);
-        if($("#aaa")[0].paused){
-            $("#aaa")[0].play();
-        }else{
-            $("#aaa")[0].pause();
-        }
-    }
+    })
+
 </script>
 
 <script>
