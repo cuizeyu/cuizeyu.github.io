@@ -262,3 +262,28 @@ h5 {
 		margin-bottom: 50px;
 	}
 }
+.btn-box{
+	position: fixed;
+	bottom: 5%;
+	left: 5%;
+	fill: none;
+	stroke: #fff;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+.btn-stop{
+	width: 20px;
+	height: 20px;
+}
+.btn-stop div{
+	float: left;
+	height: 16px;
+	width: 4px;
+	border: 1px solid #fff;
+	margin-right: 4px;
+	z-index: 999;
+}
+.hide{
+	display: none;
+}
