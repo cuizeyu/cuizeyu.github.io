@@ -148,6 +148,10 @@
             }
         },1000)
 
+        $('html').one('touchstart',function(){
+            $("#music")[0].play();
+        });
+
        var t1 = window.setInterval(play,2000)
         function play(){
             $("#music")[0].play();
