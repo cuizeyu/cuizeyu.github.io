@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="个人博客，个人自媒体，博客自媒体，饕餮自媒体，饕餮博客"/>
     <meta name="description" content="饕餮自媒体成立于2018年，是世界上最大最专业的个人自媒体，内容新颖欢迎您的体验"/>
-    <audio autoplay="autoplay" hidden="true" controls="controls"loop="loop"  src="img/bgmusic.mp3"  id="music">你的浏览器版本太低，不支持audio标签</audio>
+    <!--<audio autoplay="autoplay" hidden="true" controls="controls"loop="loop"autoplay src="img/bgmusic.mp3"  id="music">你的浏览器版本太低，不支持audio标签</audio>-->
         <title>==饕餮==一个自媒体</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
@@ -167,12 +167,14 @@
 <!-- Magnific Popup core JS file -->
 <script src="js/jquery.magnific-popup.min.js"></script>
 <script>
-    $(function () {
-        $("#music")[0].play();
-        setTimeout(function () {
-            $(".btn-stop").show(1000)
-        },5000)
 
+        var audio = document.createElement("audio");
+        audio.src = "img/bgmusic.mp3";
+        audio.loop = true;
+        audio.addEventListener("canplaythrough", function () {
+            audio.play();
+            $(".btn-stop").show("1000");
+        }, false);
         $(".btn-stop").on("click",function () {
             Toggle(".btn-stop")
         });
@@ -181,13 +183,13 @@
         });
         function Toggle(ind) {
             $(ind).hide(1000).siblings().show(1000);
-            if($("#music")[0].paused){
-                $("#music")[0].play();
+            if(audio.paused){
+                audio.play();
             }else{
-                $("#music")[0].pause();
+                audio.pause();
             }
         }
-    })
+
 
 </script>
 
